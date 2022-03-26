@@ -22,7 +22,6 @@ class ParaState extends State<Para> {
       setState(() {
         paragraph = english.ParaMaker().authorPara(_authorController.text, _pointController.text, _storyController.text, _quoteController.text);
       });
-      print(paragraph);
   }
   
   @override
@@ -39,21 +38,21 @@ class ParaState extends State<Para> {
     TextField point = TextField(
       decoration: InputDecoration(
         labelText: 'Point',
-        hintText: 'Point',
+        hintText: 'What does the author want to point out?',
       ),
       controller: _pointController,
     );
     TextField story = TextField(
       decoration: InputDecoration(
         labelText: 'Story',
-        hintText: 'Story',
+        hintText: 'Name of the Story',
       ),
       controller: _storyController,
     );
     TextField quote = TextField(
       decoration: InputDecoration(
         labelText: 'Quote',
-        hintText: 'Quote',
+        hintText: 'The quote',
       ),
       controller: _quoteController,
     );
@@ -66,19 +65,43 @@ class ParaState extends State<Para> {
       ),
       body: Center(
         child: 
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          ListView(
             children: [
-              Text(
-                paragraph,
-                style: TextStyle(fontSize: 20),
-              ),
-              author,
-              point,
-              story,
-              quote,
-            ],
-          ),
+              Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: Card(
+                    child: Container(
+                      padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 5, bottom: 5),
+                      child: Text(
+                        paragraph,
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: Card(
+                    child: Container(
+                      padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
+                      child: Column(
+                        children: [
+                          author,
+                          point,
+                          story,
+                          quote,
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: changeParagraph,

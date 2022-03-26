@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../states/checkQuote.dart';
 import '../states/para.dart';
 
 class HomeDrawer extends StatefulWidget {
@@ -17,6 +18,12 @@ class DrawerState extends State<HomeDrawer> {
             title: Text('Paragraph Generator'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => Para()));
+            },
+          ),
+          ListTile(
+            title: Text('Check Quote'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => CheckQuote()));
             },
           ),
         ],
