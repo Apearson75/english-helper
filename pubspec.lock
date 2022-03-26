@@ -55,7 +55,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "08937aeb856a5914ce7d58419f000d0f9ddc3040"
+      resolved-ref: "3bb116bdb7939236b5defa48440f0ccf5dadf0a6"
       url: "https://github.com/Phoneguytech75/english_techniques_dart"
     source: git
     version: "0.1.0"
