@@ -78,7 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title, style: GoogleFonts.nunito()),
+        title: Text('English Helper', style: GoogleFonts.nunito(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        )),
       ),
       drawer: HomeDrawer(),
       body: Center(

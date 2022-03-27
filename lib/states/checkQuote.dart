@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:english_techniques/english_techniques.dart' as english;
+import 'package:google_fonts/google_fonts.dart';
 
 class CheckQuote extends StatefulWidget {
   @override
@@ -30,7 +31,12 @@ class _CheckQuoteState extends State<CheckQuote> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Check Quote'),
+        title: Text('Check Quote', style: GoogleFonts.nunito(
+          textStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600
+          ),
+        )),
       ),
       body: Center(
         child: Column(
@@ -43,8 +49,11 @@ class _CheckQuoteState extends State<CheckQuote> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       technique,
-                      style: TextStyle(
-                        fontSize: 18,
+                      style: GoogleFonts.nunito(
+                        textStyle: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
@@ -61,7 +70,7 @@ class _CheckQuoteState extends State<CheckQuote> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: ElevatedButton(
-                      child: Text('Check'),
+                      child: Text('Check', style: GoogleFonts.nunito(fontWeight: FontWeight.w600)),
                       onPressed: () => checkQuote(_quoteController.text),
                     ),
                   ),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:english_techniques/english_techniques.dart' as english;
+import 'package:google_fonts/google_fonts.dart';
 
 class Para extends StatefulWidget {
   @override
@@ -61,7 +62,7 @@ class ParaState extends State<Para> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Paragraph Generator'),
+        title: Text('Paragraph Generator', style: GoogleFonts.nunito(textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w600))),
       ),
       body: Center(
         child: 
@@ -77,7 +78,7 @@ class ParaState extends State<Para> {
                       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 5, bottom: 5),
                       child: Text(
                         paragraph,
-                        style: TextStyle(fontSize: 20),
+                        style: GoogleFonts.nunito(textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
                       ),
                     ),
                   ),

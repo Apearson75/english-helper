@@ -5,22 +5,21 @@ import 'package:english_techniques/english_techniques.dart' as english;
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Personification extends StatefulWidget {
+class Simile extends StatefulWidget {
   @override
-  _PersonificationState createState() => _PersonificationState();
+  _SimileState createState() => _SimileState();
 }
 
-class _PersonificationState extends State<Personification> {
-  String personSentence = 'Type Thing in the boxes to generate a personification.';
+class _SimileState extends State<Simile> {
+  String simileSentence = 'Type Thing in the boxes to generate a simile.';
   final _nounController = TextEditingController();
-  final _verbController = TextEditingController();
 
 
   
   // void to generate personification.
-  void newPersonification(noun, verb) {
+  void newSimile(noun) {
     setState(() {
-      personSentence = english.Generator().randomPersonification(noun, verb);
+      simileSentence = english.Generator().randomSimile(noun);
     });
   }
   
@@ -34,13 +33,6 @@ class _PersonificationState extends State<Personification> {
         hintText: 'Noun',
       ),
       controller: _nounController,
-    );
-    TextField verb = TextField(
-      decoration: InputDecoration(
-        labelText: 'Verb',
-        hintText: 'Verb',
-      ),
-      controller: _verbController,
     );
 
     return Scaffold(
@@ -56,24 +48,19 @@ class _PersonificationState extends State<Personification> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(personSentence, style: GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.w600),),
+                    child: Text(simileSentence, style: GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.w600),),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                     child: noun,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                    child: verb,
-                  ),
-                  Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       child: Text('Generate'),
                       onPressed: () {
-                        newPersonification(
+                        newSimile(
                           _nounController.text,
-                          _verbController.text,
                         );
                       },
                     ),
