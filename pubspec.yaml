@@ -32,7 +32,9 @@ dependencies:
   english_techniques:
     git:
       url: https://github.com/Phoneguytech75/english_techniques_dart
-      ref: master 
+      ref: master
+  requests: ^4.1.0 
+  google_fonts: ^2.3.1    
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -9,10 +9,8 @@ class CheckQuote extends StatefulWidget {
 }
 
 class _CheckQuoteState extends State<CheckQuote> {
-  
   final _quoteController = TextEditingController();
   String technique = 'Type a quote in the box to check the technique.';
-
   // void to check the quote using english.Techniques().
   void checkQuote(quote) {
     setState(() {

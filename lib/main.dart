@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_techniques/english_techniques.dart' as english;
+import 'package:google_fonts/google_fonts.dart';
+import 'package:requests/requests.dart';
 
 import 'widgets/Drawer.dart';
 
@@ -76,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(widget.title, style: GoogleFonts.nunito()),
       ),
       drawer: HomeDrawer(),
       body: Center(
@@ -101,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               simile,
-              style: Theme.of(context).textTheme.headline4,
+              style: GoogleFonts.nunito(textStyle: Theme.of(context).textTheme.headline4,),
             ),
           ],
         ),
