@@ -21,6 +21,7 @@ class _SimileState extends State<Simile> {
     setState(() {
       simileSentence = english.Generator().randomSimile(noun);
     });
+    print(simileSentence);
   }
   
   @override
@@ -37,7 +38,7 @@ class _SimileState extends State<Simile> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Personification'),
+        title: Text('Simile Generator', style: GoogleFonts.nunito(textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w600))),
       ),
       body: Center(
         child: Column(

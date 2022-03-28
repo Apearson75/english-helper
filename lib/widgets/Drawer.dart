@@ -32,13 +32,13 @@ class DrawerState extends State<HomeDrawer> {
           ),
           Divider(color: Colors.grey),
           ListTile(
-            title: Text('Personification', style: GoogleFonts.nunito()),
+            title: Text('Personification Generator', style: GoogleFonts.nunito()),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => Personification()));
             },
           ),
           ListTile(
-            title: Text('Simile', style: GoogleFonts.nunito()),
+            title: Text('Simile Generator', style: GoogleFonts.nunito()),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) => Simile()));
             },

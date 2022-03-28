@@ -45,7 +45,7 @@ class _PersonificationState extends State<Personification> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Personification'),
+        title: Text('Personification Generator', style: GoogleFonts.nunito(textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w600))),
       ),
       body: Center(
         child: Column(
