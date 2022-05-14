@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_techniques/english_techniques.dart' as english;
 import 'package:google_fonts/google_fonts.dart';
-import 'package:requests/requests.dart';
 
 import 'widgets/Drawer.dart';
 
@@ -28,6 +27,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -78,10 +78,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text('English Helper', style: GoogleFonts.nunito(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-        )),
+        title: Text('English Helper',
+            style: GoogleFonts.nunito(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            )),
       ),
       drawer: HomeDrawer(),
       body: Center(
@@ -106,7 +107,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               simile,
-              style: GoogleFonts.nunito(textStyle: Theme.of(context).textTheme.headline4,),
+              style: GoogleFonts.nunito(
+                textStyle: Theme.of(context).textTheme.headline4,
+              ),
             ),
           ],
         ),

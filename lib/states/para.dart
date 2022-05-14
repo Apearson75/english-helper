@@ -1,8 +1,12 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:english_techniques/english_techniques.dart' as english;
 import 'package:google_fonts/google_fonts.dart';
+
+import '../widgets/Navbar.dart';
+import 'paragraph/themePara.dart';
+import 'paragraph/storyPara.dart';
 
 class Para extends StatefulWidget {
   @override
@@ -10,106 +14,26 @@ class Para extends StatefulWidget {
 }
 
 class ParaState extends State<Para> {
-  
-  String paragraph = 'Type Thing in the boxes to generate a paragraph.';
-    
-  // Flutter Controllers for the TextFields.
-  final _authorController = TextEditingController();
-  final _pointController = TextEditingController();
-  final _storyController = TextEditingController();
-  final _quoteController = TextEditingController();
-  
-  void changeParagraph() {
-      setState(() {
-        paragraph = english.ParaMaker().authorPara(_authorController.text, _pointController.text, _storyController.text, _quoteController.text);
-      });
-  }
-  
+  int _selectedIndex = 0;
+  final screens = [
+    ThemePara(),
+    StoryPara(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    // A random paragraph generator using the english_techniques package.
-    
-    TextField author = TextField(
-      decoration: InputDecoration(
-        labelText: 'Author',
-        hintText: 'John Doe',
-      ),
-      controller: _authorController,
-    );
-    TextField point = TextField(
-      decoration: InputDecoration(
-        labelText: 'Point',
-        hintText: 'What does the author want to point out?',
-      ),
-      controller: _pointController,
-    );
-    TextField story = TextField(
-      decoration: InputDecoration(
-        labelText: 'Story',
-        hintText: 'Name of the Story',
-      ),
-      controller: _storyController,
-    );
-    TextField quote = TextField(
-      decoration: InputDecoration(
-        labelText: 'Quote',
-        hintText: 'The quote',
-      ),
-      controller: _quoteController,
-    );
-
-    // void to change the paragraph using the ParaMaker.
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Paragraph Generator', style: GoogleFonts.nunito(textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w600))),
-      ),
-      body: Center(
-        child: 
-          ListView(
-            children: [
-              Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(10.0),
-                  child: Card(
-                    child: Container(
-                      padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 5, bottom: 5),
-                      child: Text(
-                        paragraph,
-                        style: GoogleFonts.nunito(textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: Card(
-                    child: Container(
-                      padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
-                      child: Column(
-                        children: [
-                          author,
-                          point,
-                          story,
-                          quote,
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+        body: screens[_selectedIndex],
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: _selectedIndex,
+          onDestinationSelected: (index) =>
+              setState(() => _selectedIndex = index),
+          destinations: [
+            NavigationDestination(
+                icon: Icon(Icons.book_outlined), label: "Theme Paragraph"),
+            NavigationDestination(
+                icon: Icon(Icons.abc_outlined), label: "Test"),
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: changeParagraph,
-        tooltip: 'Generate Paragraph',
-        child: Icon(Icons.add),
-      ),
-    );
-
+        ));
   }
 }
